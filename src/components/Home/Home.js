@@ -18,22 +18,30 @@ export default function Home( ) {
 
   return (
     <Grow in>
-        <Container>
-            <StyledGrid container justify='space-between' alignItems='stretch' spacing={3} >
-            <Grid item xs={12} sm={7}>
-                <Posts setCurrentId={setCurrentId}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-                <Form currentId={currentId} setCurrentId={setCurrentId}/>
-            </Grid>
+        <StyledContainer>
+            <Form currentId={currentId} setCurrentId={setCurrentId}/>
+            <StyledGrid container spacing={3} >
+              <Grid item xs={12} sm={12}>
+                  <Posts setCurrentId={setCurrentId}/>
+              </Grid>
             </StyledGrid>
-        </Container>
+        </StyledContainer>
     </Grow>  
   )
 }
 
 const StyledGrid = styled(Grid)`
+    margin-top: 1rem;
+    // border: 1px solid red;
     @media (max-width: 600px) {
       flex-direction: column-reverse;
     } 
+`
+
+const StyledContainer = styled(Container)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
 `

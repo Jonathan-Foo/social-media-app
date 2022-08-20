@@ -55,7 +55,7 @@ export default function Auth() {
     }
 
   return (
-    <Container>
+    <StyledContainer >
       <StyledPaper>
         <StyledAvatar>
             <LockOutlinedIcon />
@@ -90,10 +90,14 @@ export default function Auth() {
             </Grid>
         </StyledForm>
       </StyledPaper>
-    </Container>
+    </StyledContainer>
   )
 }
 
+const StyledContainer = styled(Container)`
+    display: flex;
+    justify-content: center;
+`
 
 const StyledPaper = styled(Paper)`
     margin-top: 1em;
@@ -101,7 +105,10 @@ const StyledPaper = styled(Paper)`
     flex-direction: column;
     align-items: center;
     padding-inline: 1em;
-    
+    width: 50%;
+    @media (max-width: 1000px) {
+        width: 90%;
+    } 
 `
 
 const StyledAvatar = styled(Avatar)`

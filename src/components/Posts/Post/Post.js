@@ -50,12 +50,13 @@ const Post = ({ post,  setCurrentId }) => {
           </Button>
         )}
         </Overlay2>
+        <Title variant='h5' color="primary" fontWeight={700} gutterBottom>{post.title}</Title>
         <Details>
           <Typography variant='body2' color="textSecondary">{post.tags.map((tag) => ` #${tag}`)}</Typography>
         </Details>
-        <Title variant='h5' gutterBottom>{post.title}</Title>
+        
         <CardContent>
-          <Typography variant='body2' color='textSecondary' component="p" gutterBottom>{post.message}</Typography>
+          <Typography variant='body2'  component="p" gutterBottom>{post.message}</Typography>
         </CardContent>
         <StyledCardActions>
           <Button size='small' color='primary' disabled={!user?.result} onClick={() => handleLike()}>
@@ -79,9 +80,14 @@ const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 15px;
+  border-radius: 5px;
   height: 100%;
   position: relative;
+  transition: 200ms ease-in-out;
+  &:hover{
+    transform: scale(1.02);
+    outline: 2px solid white;
+  }
 `
 
 const CardImage = styled(CardMedia)`
@@ -108,23 +114,16 @@ const Overlay2 = styled.div`
 const Details = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin-left: 16px;
+  margin-top: -.8rem;
 `
 const Title = styled(Typography)`
-  padding: 0 16px;
+  padding-left: 15px;
+  padding-top: .5rem;
+  
 `
 const StyledCardActions = styled(CardActions)`
   padding: 0 16px 8px 16px;
   display: flex;
   justify-content: space-between;
 `
-
-// border: {
-//   border: 'solid',
-// },
-// fullHeightCard: {
-//   height: '100%',
-// },
-// grid: {
-//   display: 'flex',
-// },

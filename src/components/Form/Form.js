@@ -43,8 +43,8 @@ const Form = ({currentId,  setCurrentId}) => {
   if(!user?.result?.name) {
     return (
       <StyledPaper>
-        <Typography variant='h6' align="center">
-          Sign In to like and create memories 
+        <Typography variant='h6' align="center" color="primary" fontWeight="bold">
+          Sign In to create and like posts  
         </Typography>
       </StyledPaper>
     )
@@ -54,13 +54,13 @@ const Form = ({currentId,  setCurrentId}) => {
     <StyledEngineProvider injectFirst>
       <StyledPaper>
         <StyledForm autoComplete='off' noValidate onSubmit={handleSubmit}>
-          <Typography variant='h6'> {currentId ? 'Editing' : 'Creating' } a Memory</Typography>
-          <TextField name='title' variant='outlined' label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({...postData, title: e.target.value})} />
-          <TextField name='message' variant='outlined' label="Message" fullWidth value={postData.message} onChange={(e) => setPostData({...postData, message: e.target.value})} />
-          <TextField name='tags' variant='outlined' label="Tags" fullWidth value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})} />
+          <Typography variant='h5' marginBottom="-.5rem" fontWeight="bold" color="primary"> {currentId ? 'Edit' : 'Create' } Post</Typography>
+          <TextField name='title' variant='standard' label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({...postData, title: e.target.value})} />
+          <TextField name='message' variant='standard' label="Message" fullWidth value={postData.message} onChange={(e) => setPostData({...postData, message: e.target.value})} />
+          <TextField name='tags' variant='standard' label="Tags" fullWidth value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})} />
           <FileInput><FileBase type='File' multiple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})}/></FileInput>
           <StyledButton variant='contained' color='primary' size='large' type='submit' fullWidth>Submit</StyledButton>
-          <Button variant='contained' color='secondary' size='small' onClick={clear} fullWidth>Clear</Button>
+          <Button variant='contained' color='error' size='small' onClick={clear} fullWidth>Clear</Button>
         </StyledForm>
       </StyledPaper>
     </StyledEngineProvider>
@@ -70,7 +70,11 @@ const Form = ({currentId,  setCurrentId}) => {
 export default Form;
 
 const StyledPaper = styled(Paper)`
-  padding: 1em;
+  padding: 1em 1.5em;
+  width: 60%;
+  @media (max-width: 600px) {
+    width: 90%;
+  } 
 `
 const StyledForm = styled.form`
   display: flex;
@@ -85,6 +89,5 @@ const FileInput = styled.div`
 `
 
 const StyledButton = styled(Button)`
-  margin-bottom: 10px;
 
 `

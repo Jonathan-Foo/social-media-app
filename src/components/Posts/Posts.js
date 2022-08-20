@@ -8,7 +8,13 @@ import { StyledEngineProvider, Grid, CircularProgress } from '@mui/material';
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   return (
-    !posts.length ? <CircularProgress /> : (
+    !posts.length ?
+      <StyledEngineProvider injectFirst>
+        <BufferContainer>
+          <CircularProgress color='inherit' size={60}/>
+        </BufferContainer> 
+      </StyledEngineProvider> 
+      : (
       <StyledEngineProvider injectFirst>
         <MainContainer container alignItems='stretch' spacing={3}>
           {posts.map((post) => (
@@ -27,11 +33,13 @@ export default Posts;
 const MainContainer = styled(Grid)`
   display: flex;
   align-items: center;
+  width: 100%;
 `
-
-// smMargin: {
-//   margin: theme.spacing(1),
-// },
-// actionDiv: {
-//   textAlign: 'center',
-// },
+const BufferContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

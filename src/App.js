@@ -1,5 +1,4 @@
 import React from 'react'
-import {Container } from '@mui/material';
 import { StyledEngineProvider } from '@mui/material';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -12,13 +11,11 @@ export default function App() {
   return (
     <GoogleOAuthProvider clientId='212260666031-php8hgps7kbfpmdboj9qfbp6jn785tp6.apps.googleusercontent.com' >
       <StyledEngineProvider injectFirst>
-      <Container maxWidth='lg'>
         <Navbar />
         <Routes>
           <Route path='social-media-app/' element={<Home />} />
           <Route path='social-media-app/auth' element={<Auth />} />
         </Routes>
-      </Container>
       </StyledEngineProvider>
     </GoogleOAuthProvider>
 )}
