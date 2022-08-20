@@ -32,9 +32,9 @@ export default function Home( ) {
 
 const StyledGrid = styled(Grid)`
     margin-top: 1rem;
-    // border: 1px solid red;
     @media (max-width: 600px) {
       flex-direction: column-reverse;
+      margin-right: -1.5rem;
     } 
 `
 
