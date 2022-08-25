@@ -12,13 +12,13 @@ Live Preview :globe_with_meridians:: https://jonathan-foo.github.io/social-media
 - Responsive design
 
 # Technologies :hammer_and_wrench:
-### FrontEnd
+### Frontend
 - React
 - Redux
 - Material UI
 - Styled-Components
 
-### BackEnd
+### Backend
 - Node
 - Express
 - MongoDB
